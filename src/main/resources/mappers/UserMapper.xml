@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="top.xinzhang0618.springboot.demo.mapper.UserMapper">
+  <resultMap id="resultMap" type="top.xinzhang0618.springboot.demo.User">
+    <id column="user_id" property="userId"/>
+    <result column="created_time" property="createdTime"/>
+    <result column="department_id" property="departmentId"/>
+    <result column="department_name" property="departmentName"/>
+    <result column="email" property="email"/>
+    <result column="head_url" property="headUrl"/>
+    <result column="is_enable" property="enable"/>
+    <result column="is_system" property="system"/>
+    <result column="login_name" property="loginName"/>
+    <result column="login_password" property="loginPassword"/>
+    <result column="mobile" property="mobile"/>
+    <result column="modified_time" property="modifiedTime"/>
+    <result column="nickname" property="nickname"/>
+    <result column="remark" property="remark"/>
+    <result column="telephone" property="telephone"/>
+    <result column="user_name" property="userName"/>
+  </resultMap>
+  <sql
+    id="columns">created_time,department_id,department_name,email,head_url,is_enable,is_system,login_name,login_password,mobile,modified_time,nickname,remark,telephone,user_id,user_name</sql>
+
+  <select id="listAll" resultMap="resultMap">
+    select
+    <include refid="columns"/>
+    from oms_user
+  </select>
+
+  <insert id="insert">
+    INSERT INTO `xz_test`.`oms_user`(`user_id`, `modified_time`, `created_time`, `is_enable`, `login_name`, `login_password`, `user_name`, `nickname`, `mobile`, `telephone`, `department_id`, `department_name`, `email`, `remark`, `head_url`, `is_system`) VALUES (202005220001, '2019-01-28 17:27:43', '2018-05-23 18:02:54', 1, 'ghtest', '17ca12a8c25e8b93b118e3c7ae938a8e', 'ghtest', 'ghtest', NULL, NULL, 0, '系统', NULL, NULL, NULL, 1);
+  </insert>
+</mapper>
